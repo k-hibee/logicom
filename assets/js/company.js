@@ -1,3 +1,6 @@
+/**
+ * 会社案内ページ専用JS
+ */
 document.addEventListener('DOMContentLoaded', function() {
   const viewMoreBtn = document.getElementById('view-more-btn');
 
