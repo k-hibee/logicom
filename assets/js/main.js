@@ -27,28 +27,74 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 /**
  * 2. 共通パーツのフェッチ
+ * 現在のページの深さを自動判定し、適切なパスで取得・パス補正を行います。
  */
 async function loadCommonParts() {
   const headerElem = document.getElementById('header-include');
   const footerElem = document.getElementById('footer-include');
 
+  // --- 階層判定ロジック ---
+  // GitHub Pages (/logicom/) か 独自ドメイン (/) かを自動で判別してルートまでのパスを作成
+  const pathArray = window.location.pathname.split('/').filter(p => p !== "");
+  const isGitHub = window.location.hostname.includes('github.io');
+  
+  // GitHub Pagesの場合はリポジトリ名(/logicom/)を無視して深さを計算
+  const actualDepth = isGitHub ? pathArray.length - 1 : pathArray.length;
+  
+  // 深さに応じて "../" を生成（トップなら空文字、1段下なら "../"）
+  const relPath = actualDepth > 0 ? "../".repeat(actualDepth) : "./";
+
   try {
+    // Headerの読み込み
     if (headerElem) {
-      const hRes = await fetch('../parts/header.html');
+      const hRes = await fetch(`${relPath}parts/header.html`);
       if (hRes.ok) {
-        headerElem.innerHTML = await hRes.text();
+        let hHtml = await hRes.text();
+        headerElem.innerHTML = hHtml;
+        // 読み込み後にパスを補正
+        adjustPaths(headerElem, relPath);
         initMobileMenu(); 
       }
     }
+
+    // Footerの読み込み
     if (footerElem) {
-      const fRes = await fetch('../parts/footer.html');
+      const fRes = await fetch(`${relPath}parts/footer.html`);
       if (fRes.ok) {
-        footerElem.innerHTML = await fRes.text();
+        let fHtml = await fRes.text();
+        footerElem.innerHTML = fHtml;
+        // 読み込み後にパスを補正
+        adjustPaths(footerElem, relPath);
       }
     }
   } catch (error) {
     console.error("共通パーツの読み込みに失敗しました:", error);
   }
+}
+
+/**
+ * 共通パーツ内の画像・リンクパスを現在の階層に合わせて強制補正する関数
+ */
+function adjustPaths(container, relPath) {
+  // 画像のsrc属性を補正
+  container.querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src');
+    // 外部URL(http)や既に調整済みのパス以外を対象に relPath を付与
+    if (src && !src.startsWith('http') && !src.startsWith('data:')) {
+      // 一旦、記述されている "../" などを削除して純粋なパスにしてから relPath をつける
+      const cleanPath = src.replace(/^(\.\.\/)+/, "");
+      img.src = relPath + cleanPath;
+    }
+  });
+
+  // リンクのhref属性を補正
+  container.querySelectorAll('a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+      const cleanPath = href.replace(/^(\.\.\/)+/, "");
+      a.href = relPath + cleanPath;
+    }
+  });
 }
 
 /**

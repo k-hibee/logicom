@@ -88,6 +88,62 @@ img { max-width: 100%; height: auto; display: block; }
   vertical-align: bottom; /* 下の要素との隙間を埋める */
 }
 
+/* ナビゲーション全体の親要素 */
+.nav-item {
+  position: relative; /* サブメニューの基準点 */
+}
+
+/* ドロップダウンメニューの基本スタイル */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* 親のすぐ下 */
+  left: 50%;
+  transform: translateX(-50%); /* 中央寄せ */
+  background: #fff;
+  min-width: 200px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  list-style: none;
+}
+
+/* ホバー時に表示 */
+.nav-item.has-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  top: calc(100% + 10px); /* 少し下にずらして浮かせる */
+}
+
+/* メニュー内リンクのスタイル */
+.dropdown-menu li a {
+  display: block;
+  padding: 12px 20px;
+  color: #333;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap; /* 改行防止 */
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--bg-gray); /* ホバー時の色 */
+  color: var(--main-orange);
+}
+
+/* メニューが消えないように隙間を埋める（透明なブリッジ） */
+.nav-item.has-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
 /* 縦書きの日本語（ここを強力に修正） */
 .business-card-vertical {
   /* フォント設定：日本語ゴシックを最優先 */
