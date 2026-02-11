@@ -79,9 +79,7 @@ function adjustPaths(container, relPath) {
   // 画像のsrc属性を補正
   container.querySelectorAll('img').forEach(img => {
     const src = img.getAttribute('src');
-    // 外部URL(http)や既に調整済みのパス以外を対象に relPath を付与
     if (src && !src.startsWith('http') && !src.startsWith('data:')) {
-      // 一旦、記述されている "../" などを削除して純粋なパスにしてから relPath をつける
       const cleanPath = src.replace(/^(\.\.\/)+/, "");
       img.src = relPath + cleanPath;
     }
@@ -89,10 +87,18 @@ function adjustPaths(container, relPath) {
 
   // リンクのhref属性を補正
   container.querySelectorAll('a').forEach(a => {
-    const href = a.getAttribute('href');
+    let href = a.getAttribute('href');
     if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-      const cleanPath = href.replace(/^(\.\.\/)+/, "");
-      a.href = relPath + cleanPath;
+      
+      // index.html を含めず、階層の深さ（relPath）だけに書き換え
+      if (href === "/" || href === "index.html" || href.endsWith("/index.html")) {
+        // トップなら "./"、下層なら "../../" になる
+        a.href = relPath; 
+      } else {
+        // その他のリンクも補正
+        const cleanPath = href.replace(/^(\.\.\/)+/, "");
+        a.href = relPath + cleanPath;
+      }
     }
   });
 }
