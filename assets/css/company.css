@@ -1,489 +1,515 @@
-/* --- 個別ページ全体設定 --- */
-.page-company {
-    color: #333;
-    line-height: 1.8;
-    overflow-x: hidden;
-  }
-  
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .company-section {
-    padding: 80px 0;
-  }
-  
-  .bg-gray {
-    background-color: #f9f9f9;
-  }
-  
-/* --- 見出しの共通設定 --- */
-.title-orange, 
-.text-vertical,
-.section-title-en { /* もし他の見出しクラスがあれば追加 */
-  font-family: 'Alfa Slab One', serif;
-  font-weight: 400; /* このフォントは1ウェイトのみなので400でOK */
-  letter-spacing: 0.05em;
-  color: #FF5C00;
-  text-transform: uppercase; /* 小文字で打っても大文字にする設定 */
+/* =========================================
+   Base Styles
+   ========================================= */
+:root {
+  --main-orange: #FF5C00;
+  --gradient-orange: linear-gradient(135deg, #FF9500, #FF5C00);
+  --text-color: #333;
+  --bg-gray: #f9f9f9;
 }
 
-/* MESSAGE部分のタイトル（下線付き） */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text-color);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; vertical-align: bottom; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 共通見出しスタイル */
+.title-orange, 
+.text-vertical,
+.section-title-en {
+  font-family: 'Alfa Slab One', serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--main-orange);
+  text-transform: uppercase;
+}
+
+/* 下線付きタイトル */
 .title-orange {
-  font-size: 48px; /* デザイン案に合わせて少し大きく */
+  font-size: 48px;
   position: relative;
   display: inline-block;
-  margin-bottom: 30px;
-  border-bottom: 4px solid #FF5C00; /* 下線 */
+  margin-bottom: 40px;
+  border-bottom: 4px solid var(--main-orange);
   padding-bottom: 5px;
 }
 
-/* 縦書きのタイトル (INFORMATION部分) */
-.text-vertical {
-  writing-mode: vertical-rl;
-  font-size: 60px;
-  opacity: 1; /* 縁取りのみにするか、塗りつぶすかはお好みで */
-  line-height: 1;
-}
-  
-  /* --- 1. Hero / Badge Section --- */
-/* ヒーローセクション全体の高さ固定 */
-.company-hero {
-    width: 100%;
-    height: 500px; /* 必要に応じて調整 */
-    overflow: hidden;
-  }
-  
-  .hero-map-bg {
-    position: relative; /* バッジの基準点 */
-    width: 100%;
-    height: 100%;
-  }
-  
-  .map-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画像を枠いっぱいに広げる */
-  }
-  
-  /* バッジを画像の上に重ねる */
-  .company-badge-container {
-    position: absolute;
-    top: 40%;
-    left: 40px;
-    transform: none;
-    z-index: 10;
-    width: auto;      /* paddingなどで広がらないよう自動に */
-  }
-  
-  /* 横長バッジの微調整 */
-.company-badge-rect {
-    width: 100%;
-    max-width: 540px; 
-    height: 120px;
-    
-    /* 背景を白にして、オレンジの太い縁をつける */
-    background: #ffffff;
-    border: 8px solid #FF5C00; /* ここでオレンジの縁取りをしています */
-    
-    /* スピード感を出す角丸（左上12px, 右上60px...のデザインを維持） */
-    border-radius: 12px 60px 12px 60px; 
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 縁を際立たせるため影は少し薄く */
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* 中のボックス：縁取りスタイルなので背景や影を消してロゴだけに集中させる */
-  .logo-white-box-rect {
-    width: 100%;
-    height: 100%;
-    background: transparent; /* 背景透過 */
-    box-shadow: none;        /* 影なし */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  /* ロゴ画像のサイズを微調整 */
-  .badge-logo {
-    max-width: 90%;
-    max-height: 70%;
-    object-fit: contain;
-  }
-  /* スマホ対応：バッジを小さくする */
-  @media (max-width: 768px) {
-    .company-hero {
-      height: 350px;
-    }
-    .company-badge-rect {
-      width: 300px;
-      height: 90px;
-      border-radius: 8px 40px 8px 40px;
-    }
-    .logo-white-box-rect {
-      padding: 5px 20px;
-    }
-  }
-
-/* --- 2. Message Section --- */
-.company-section {
-    position: relative;
-    padding: 100px 0;
-    overflow: hidden;
-  }
-  
-  /* 背景に大きく薄くMESSAGEと入れる装飾（デザイン案再現） */
-  .section-bg-text {
-    position: absolute;
-    top: 50px;
-    left: -50px;
-    font-family: 'Alfa Slab One', serif;
-    font-size: 150px;
-    color: rgba(255, 92, 0, 0.05); /* 非常に薄いオレンジ */
-    white-space: nowrap;
-    z-index: -1;
-    pointer-events: none;
-  }
-  
-  .message-layout {
-    display: flex;
-    gap: 40px;
-    align-items: center; /* 垂直中央に */
-  }
-  
-  /* テキストブロックの装飾 */
-  .message-text-block {
-    flex: 1;
-    background: #fff;
-    padding: 40px;
-    border: 2px solid #FF5C00; /* オレンジの細い枠線 */
-    border-radius: 0 40px 0 40px; /* バッジと合わせた角丸 */
-    box-shadow: 10px 10px 0 rgba(255, 92, 0, 0.1); /* オレンジの影 */
-  }
-  
-  .message-lead {
-    font-size: 22px;
-    font-weight: 700;
-    color: #FF5C00;
-    margin-bottom: 20px;
-    line-height: 1.4;
-    border-left: 5px solid #FF5C00;
-    padding-left: 15px;
-  }
-  
-  .message-body {
-    font-size: 16px;
-    line-height: 2;
-    text-align: justify;
-  }
-  
-  /* 写真部分の装飾 */
-  .message-visual {
-    width: 400px;
-    position: relative;
-  }
-  
-  .ceo-photo-wrapper {
-    position: relative;
-    z-index: 1;
-  }
-  
-  /* 写真の後ろにあるオレンジの四角（デザイン案再現） */
-  .ceo-photo-wrapper::before {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #FF9500, #FF5C00);
-    z-index: -1;
-    border-radius: 5px;
-  }
-  
-  .ceo-photo-wrapper img {
-    width: 100%;
-    border-radius: 5px;
-    display: block;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  }
-  
-  /* 役職と名前のラベル */
-  .ceo-name-label {
-    position: absolute;
-    bottom: 20px;
-    right: -10px;
-    background: #FF5C00;
-    color: #fff;
-    padding: 15px 30px;
-    border-radius: 5px 0 5px 0;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
-    z-index: 2;
-  }
-  
-  .ceo-name-label .role {
-    display: block;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    margin-bottom: 5px;
-  }
-  
-  .ceo-name-label .name {
-    font-size: 20px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-  
-  /* 共通のオレンジラベルとカードスタイル for SERVICEセクション */
-.service-section {
-  padding: 50px 0;
-  background-color: #f9f9f9;
-}
-
-/* オレンジのタイトルラベル */
+/* オレンジラベル（小見出し） */
 .label-orange {
   display: inline-block;
   background: linear-gradient(to right, #ff4e00, #ff8c00);
   color: white;
-  padding: 8px 40px;
+  padding: 8px 30px;
   border-radius: 5px;
   font-size: 1.3rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
-/* メインカードのレイアウト */
+/* =========================================
+   1. Hero / Badge Section
+   ========================================= */
+.company-hero {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-map-bg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.map-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* バッジコンテナ */
+.company-badge-container {
+  position: absolute;
+  top: 40%;
+  left: 10%; /* 少し調整 */
+  z-index: 10;
+}
+
+/* バッジ本体 */
+.company-badge-rect {
+  width: 100%;
+  min-width: 300px;
+  max-width: 540px; 
+  height: 120px;
+  background: #ffffff;
+  border: 8px solid var(--main-orange);
+  border-radius: 12px 60px 12px 60px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.logo-white-box-rect {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge-logo {
+  max-width: 200px; /* ロゴサイズ制限 */
+  object-fit: contain;
+}
+
+/* =========================================
+   2. Message Section
+   ========================================= */
+.company-section {
+  position: relative;
+  padding: 100px 0;
+}
+
+.section-bg-text {
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  font-family: 'Alfa Slab One', serif;
+  font-size: 150px;
+  color: rgba(255, 92, 0, 0.05);
+  white-space: nowrap;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.message-layout {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.message-text-block {
+  flex: 1;
+  background: #fff;
+  padding: 40px;
+  border: 2px solid var(--main-orange);
+  border-radius: 0 40px 0 40px;
+  box-shadow: 10px 10px 0 rgba(255, 92, 0, 0.1);
+}
+
+.message-lead {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--main-orange);
+  margin-bottom: 20px;
+  line-height: 1.6;
+  border-left: 5px solid var(--main-orange);
+  padding-left: 15px;
+}
+
+.message-body p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+.message-visual {
+  width: 350px;
+  flex-shrink: 0;
+}
+
+.ceo-photo-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.ceo-photo-wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-orange);
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.ceo-photo-wrapper img {
+  width: 100%;
+  border-radius: 5px;
+  display: block;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.ceo-name-label {
+  position: absolute;
+  bottom: 20px;
+  right: -10px;
+  background: var(--main-orange);
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 5px 0 5px 0;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.ceo-name-label .role {
+  display: block;
+  font-size: 11px;
+  margin-bottom: 2px;
+  opacity: 0.9;
+}
+
+.ceo-name-label .name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* =========================================
+   3. Services / Storage Section
+   ========================================= */
+.storage-section {
+  background-color: var(--bg-gray);
+}
+
 .service-main-card {
   background: #fff;
-  padding: 30px;
+  padding: 40px;
   border-radius: 15px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 60px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
 .service-flex {
   display: flex;
-  gap: 30px;
+  gap: 40px;
   align-items: flex-start;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-.service-text { flex: 1.5; font-size: 0.95rem; line-height: 1.8; }
+.service-text { flex: 1.5; }
 .service-image { flex: 1; }
-.service-image img { width: 100%; border-radius: 10px; }
+.service-image img { border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-/* 5つの白いサブカード */
 .sub-service-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 1行に3つ */
+  grid-template-columns: repeat(5, 1fr); /* 5カラムに変更 */
   gap: 15px;
 }
 
 .sub-card {
   background: #fff;
   border: 1px solid #eee;
-  padding: 20px;
+  padding: 15px 10px;
   text-align: center;
   font-weight: bold;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
 }
+.sub-card:hover { transform: translateY(-3px); border-color: var(--main-orange); color: var(--main-orange); }
 
-/* センター業務受託のレイアウト */
+/* センター業務 */
 .center-service-flex {
   display: flex;
-  gap: 40px;
+  flex-direction: row-reverse; /* 画像左、テキスト右にするため反転 */
+  gap: 50px;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 60px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.center-image { flex: 1; text-align: center; }
+.center-content { flex: 1.2; }
+
+/* 倉庫エリア */
+.storage-container { margin-top: 80px; }
+
+.storage-header {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
   background: #fff;
   padding: 30px;
   border-radius: 15px;
 }
 
-.center-image { flex: 1; text-align: center; }
-.center-image img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-.center-content { flex: 1.5; }
+.storage-intro { flex: 1; }
+.storage-header .header-image { flex: 1; max-width: 400px; }
+.storage-header .header-image img { border-radius: 10px; }
 
-/* ★View Moreボタンのサイズ統一設定★ */
-.btn-more-standard {
+/* 倉庫グリッド */
+.storage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.storage-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+.storage-card:hover { transform: translateY(-5px); }
+
+.storage-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-footer {
+  padding: 15px;
+  font-weight: bold;
+  text-align: center;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.card-footer span { color: var(--main-orange); font-weight: bold; }
+
+/* EC Section */
+.ec-container {
+  margin-top: 80px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid #eee;
+}
+
+.ec-flex {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.ec-image { flex: 1; }
+.ec-image img { border-radius: 10px; }
+.ec-content { flex: 1.5; }
+
+/* Buttons */
+.view-more-container { margin-top: 20px; text-align: left; }
+
+.btn-more-standard, .btn-more-small {
   display: inline-block;
-  width: 200px; /* 横幅を固定 */
-  height: 45px; /* 高さを固定 */
-  line-height: 45px; /* 文字を中央に */
-  padding: 0;
+  padding: 10px 30px;
   background: linear-gradient(to bottom, #ff5e00, #ff8c00);
   color: white;
   border: none;
   border-radius: 5px;
   font-weight: bold;
-  font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 4px 0 #d34e00;
-  text-align: center;
   transition: all 0.2s;
 }
-
-.btn-more-standard:hover {
+.btn-more-standard:hover, .btn-more-small:hover {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #d34e00;
 }
 
-  /* スマホ対応 */
-  @media (max-width: 768px) {
-    .message-layout {
-      flex-direction: column;
-    }
-    .message-visual {
-      width: 90%;
-      margin: 40px auto 0;
-    }
-    .message-text-block {
-      padding: 25px;
-    }
-    .section-bg-text {
-      font-size: 80px;
-      top: 20px;
-    }
-  }
-  
-  /* --- 3. Information & 縦書きタイトル --- */
-  .flex-layout {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .info-table-side {
-    flex: 1;
-  }
-  
-  .logicom-table {
-    width: 100%;
-    border-top: 2px solid #333;
-  }
-  
-  .logicom-table th, .logicom-table td {
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .logicom-table th {
-    width: 180px;
-    background: #f4f4f4;
-    font-weight: 700;
-  }
-  
-  .info-vertical-title {
-    width: 100px;
-    padding-left: 50px;
-  }
-  
-  /* --- 4. History (沿革) --- */
-/* 沿革セクション全体の調整 */
+/* =========================================
+   4. Info Section
+   ========================================= */
+.info-row { background: #fff; }
+
+.flex-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.info-table-side { flex: 1; }
+
+.logicom-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid #333;
+}
+
+.logicom-table th, .logicom-table td {
+  padding: 18px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.logicom-table th {
+  width: 20%;
+  background: #f4f4f4;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.info-vertical-title {
+  width: 120px;
+  padding-left: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.text-vertical {
+  writing-mode: vertical-rl;
+  font-size: 80px;
+  line-height: 1;
+  opacity: 0.15; /* 背景っぽく薄く */
+  color: var(--main-orange);
+}
+
+/* =========================================
+   5. History Section
+   ========================================= */
 .history-section {
   text-align: center;
-  padding: 60px 0;
+  background: var(--bg-gray);
 }
 
 .history-list {
-  max-width: 800px; /* デザインに合わせて幅を調整 */
+  max-width: 800px;
   margin: 0 auto;
+  text-align: left;
 }
 
-/* 各アイテムのスタイル */
 .history-item {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
   padding: 20px 0;
-  border-bottom: 1.5px solid #ddd; /* 下の区切り線 */
+  border-bottom: 1px dashed #ccc;
 }
 
-.history-item.is-hidden {
-  display: none;
-}
+.history-item.is-hidden { display: none; }
 
-/* 年号（左側）のスタイル */
 .year {
-  width: 140px;
-  text-align: center;
+  width: 160px;
   font-weight: 900;
   font-size: 1.1rem;
   color: #333;
-  position: relative;
-  margin-right: 40px;
   flex-shrink: 0;
 }
 
-/* 説明文（右側）のスタイル */
 .desc {
   flex: 1;
-  text-align: left;
-  font-weight: bold;
-  line-height: 1.6;
-  color: #333;
+  font-size: 0.95rem;
 }
 
-/* View More ボタンのコンテナ */
-.view-more-container {
+.btn-more-history {
   margin-top: 40px;
-}
-
-/* デザイン案に近いグラデーションボタン */
-.btn-more {
-  display: inline-block;
-  position: relative;
   padding: 12px 60px;
   font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
-  text-decoration: none;
-  background: linear-gradient(to bottom, #ff5e00, #ff8c00); /* オレンジのグラデーション */
+  background: var(--gradient-orange);
   border: none;
-  border-radius: 8px; /* 角丸を少し抑える */
-  box-shadow: 0 4px 0 #d34e00; /* 立体感 */
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(255, 92, 0, 0.4);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: transform 0.2s;
 }
+.btn-more-history:hover { transform: translateY(-3px); }
 
-.btn-more:hover {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #d34e00;
-}
 
-/* ボタンの下の小さな矢印（∨）を再現 */
-.btn-more::after {
-  content: "∨";
-  display: block;
-  font-size: 0.8rem;
-  margin-top: -5px;
-}
+/* =========================================
+   Responsive Styles
+   ========================================= */
+@media (max-width: 768px) {
+  .title-orange { font-size: 32px; border-width: 3px; }
+  .section-bg-text { font-size: 60px; top: 10px; }
   
-  /* --- レスポンシブ (スマホ対応) --- */
-  @media (max-width: 768px) {
-    .message-layout, .flex-layout {
-      flex-direction: column;
-    }
-    
-    .message-visual {
-      width: 100%;
-      margin-top: 40px;
-    }
-    
-    .info-vertical-title {
-      display: none; /* スマホでは縦書きタイトルを隠す */
-    }
-    
-    .title-orange {
-      font-size: 30px;
-    }
-  }
+  /* Hero */
+  .company-hero { height: 300px; }
+  .company-badge-container { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; }
+  .company-badge-rect { height: auto; padding: 15px; border-width: 5px; }
+  
+  /* Message */
+  .message-layout { flex-direction: column; }
+  .message-text-block { padding: 25px; border-radius: 10px; }
+  .message-visual { width: 100%; max-width: 400px; margin-top: 20px; }
+  
+  /* Service */
+  .service-flex, .center-service-flex, .ec-flex { flex-direction: column; gap: 20px; }
+  .center-service-flex { flex-direction: column; /* SPでは画像上に戻す */ }
+  .sub-service-grid { grid-template-columns: repeat(2, 1fr); }
+  .sub-card:last-child { grid-column: span 2; }
+  
+  /* Storage */
+  .storage-header { flex-direction: column; padding: 20px; }
+  .storage-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  /* Info */
+  .flex-layout { flex-direction: column; }
+  .info-vertical-title { display: none; }
+  .logicom-table th, .logicom-table td { display: block; width: 100%; }
+  .logicom-table th { background: #eee; padding: 10px 15px; }
+  
+  /* History */
+  .history-item { flex-direction: column; }
+  .year { margin-bottom: 5px; width: 100%; border-left: 4px solid var(--main-orange); padding-left: 10px; }
+}
