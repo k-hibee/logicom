@@ -1,0 +1,18 @@
+# --- OS・エディタの不要ファイル ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- 依存関係（npmなどを使う場合） ---
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# --- ビルド出力（完成品フォルダ） ---
+dist/
+build/
+
+# --- 環境変数・機密情報（絶対に公開してはいけないもの） ---
+.env
+.env.local
