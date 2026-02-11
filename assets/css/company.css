@@ -1,0 +1,345 @@
+/* --- 個別ページ全体設定 --- */
+.page-company {
+    color: #333;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .company-section {
+    padding: 80px 0;
+  }
+  
+  .bg-gray {
+    background-color: #f9f9f9;
+  }
+  
+/* --- 見出しの共通設定 --- */
+.title-orange, 
+.text-vertical,
+.section-title-en { /* もし他の見出しクラスがあれば追加 */
+  font-family: 'Alfa Slab One', serif;
+  font-weight: 400; /* このフォントは1ウェイトのみなので400でOK */
+  letter-spacing: 0.05em;
+  color: #FF5C00;
+  text-transform: uppercase; /* 小文字で打っても大文字にする設定 */
+}
+
+/* MESSAGE部分のタイトル（下線付き） */
+.title-orange {
+  font-size: 48px; /* デザイン案に合わせて少し大きく */
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+  border-bottom: 4px solid #FF5C00; /* 下線 */
+  padding-bottom: 5px;
+}
+
+/* 縦書きのタイトル (INFORMATION部分) */
+.text-vertical {
+  writing-mode: vertical-rl;
+  font-size: 60px;
+  opacity: 1; /* 縁取りのみにするか、塗りつぶすかはお好みで */
+  line-height: 1;
+}
+  
+  /* --- 1. Hero / Badge Section --- */
+/* ヒーローセクション全体の高さ固定 */
+.company-hero {
+    width: 100%;
+    height: 500px; /* 必要に応じて調整 */
+    overflow: hidden;
+  }
+  
+  .hero-map-bg {
+    position: relative; /* バッジの基準点 */
+    width: 100%;
+    height: 100%;
+  }
+  
+  .map-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像を枠いっぱいに広げる */
+  }
+  
+  /* バッジを画像の上に重ねる */
+  .company-badge-container {
+    position: absolute;
+    top: 40%;
+    left: 40px;
+    transform: none;
+    z-index: 10;
+    width: auto;      /* paddingなどで広がらないよう自動に */
+  }
+  
+  /* 横長バッジの微調整 */
+.company-badge-rect {
+    width: 100%;
+    max-width: 540px; 
+    height: 120px;
+    
+    /* 背景を白にして、オレンジの太い縁をつける */
+    background: #ffffff;
+    border: 8px solid #FF5C00; /* ここでオレンジの縁取りをしています */
+    
+    /* スピード感を出す角丸（左上12px, 右上60px...のデザインを維持） */
+    border-radius: 12px 60px 12px 60px; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 縁を際立たせるため影は少し薄く */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 中のボックス：縁取りスタイルなので背景や影を消してロゴだけに集中させる */
+  .logo-white-box-rect {
+    width: 100%;
+    height: 100%;
+    background: transparent; /* 背景透過 */
+    box-shadow: none;        /* 影なし */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  /* ロゴ画像のサイズを微調整 */
+  .badge-logo {
+    max-width: 90%;
+    max-height: 70%;
+    object-fit: contain;
+  }
+  /* スマホ対応：バッジを小さくする */
+  @media (max-width: 768px) {
+    .company-hero {
+      height: 350px;
+    }
+    .company-badge-rect {
+      width: 300px;
+      height: 90px;
+      border-radius: 8px 40px 8px 40px;
+    }
+    .logo-white-box-rect {
+      padding: 5px 20px;
+    }
+  }
+
+/* --- 2. Message Section --- */
+.company-section {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+  }
+  
+  /* 背景に大きく薄くMESSAGEと入れる装飾（デザイン案再現） */
+  .section-bg-text {
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    font-family: 'Alfa Slab One', serif;
+    font-size: 150px;
+    color: rgba(255, 92, 0, 0.05); /* 非常に薄いオレンジ */
+    white-space: nowrap;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .message-layout {
+    display: flex;
+    gap: 40px;
+    align-items: center; /* 垂直中央に */
+  }
+  
+  /* テキストブロックの装飾 */
+  .message-text-block {
+    flex: 1;
+    background: #fff;
+    padding: 40px;
+    border: 2px solid #FF5C00; /* オレンジの細い枠線 */
+    border-radius: 0 40px 0 40px; /* バッジと合わせた角丸 */
+    box-shadow: 10px 10px 0 rgba(255, 92, 0, 0.1); /* オレンジの影 */
+  }
+  
+  .message-lead {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FF5C00;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    border-left: 5px solid #FF5C00;
+    padding-left: 15px;
+  }
+  
+  .message-body {
+    font-size: 16px;
+    line-height: 2;
+    text-align: justify;
+  }
+  
+  /* 写真部分の装飾 */
+  .message-visual {
+    width: 400px;
+    position: relative;
+  }
+  
+  .ceo-photo-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* 写真の後ろにあるオレンジの四角（デザイン案再現） */
+  .ceo-photo-wrapper::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FF9500, #FF5C00);
+    z-index: -1;
+    border-radius: 5px;
+  }
+  
+  .ceo-photo-wrapper img {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  
+  /* 役職と名前のラベル */
+  .ceo-name-label {
+    position: absolute;
+    bottom: 20px;
+    right: -10px;
+    background: #FF5C00;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px 0 5px 0;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
+  
+  .ceo-name-label .role {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+  }
+  
+  .ceo-name-label .name {
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  /* スマホ対応 */
+  @media (max-width: 768px) {
+    .message-layout {
+      flex-direction: column;
+    }
+    .message-visual {
+      width: 90%;
+      margin: 40px auto 0;
+    }
+    .message-text-block {
+      padding: 25px;
+    }
+    .section-bg-text {
+      font-size: 80px;
+      top: 20px;
+    }
+  }
+  
+  /* --- 3. Information & 縦書きタイトル --- */
+  .flex-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .info-table-side {
+    flex: 1;
+  }
+  
+  .logicom-table {
+    width: 100%;
+    border-top: 2px solid #333;
+  }
+  
+  .logicom-table th, .logicom-table td {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .logicom-table th {
+    width: 180px;
+    background: #f4f4f4;
+    font-weight: 700;
+  }
+  
+  .info-vertical-title {
+    width: 100px;
+    padding-left: 50px;
+  }
+  
+  /* --- 4. History (沿革) --- */
+  .history-list {
+    border-left: 2px solid #FF5C00;
+    padding-left: 30px;
+    margin-left: 10px;
+  }
+  
+  .history-item {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .history-item::before {
+    content: "";
+    position: absolute;
+    left: -37px;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    background: #FF5C00;
+    border-radius: 50%;
+  }
+  
+  .history-item .year {
+    display: block;
+    font-weight: 900;
+    font-size: 18px;
+    color: #FF5C00;
+    margin-bottom: 5px;
+  }
+  
+  /* --- レスポンシブ (スマホ対応) --- */
+  @media (max-width: 768px) {
+    .message-layout, .flex-layout {
+      flex-direction: column;
+    }
+    
+    .message-visual {
+      width: 100%;
+      margin-top: 40px;
+    }
+    
+    .info-vertical-title {
+      display: none; /* スマホでは縦書きタイトルを隠す */
+    }
+    
+    .title-orange {
+      font-size: 30px;
+    }
+  }
