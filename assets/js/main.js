@@ -35,14 +35,14 @@ async function loadCommonParts() {
   // 階層に関わらずルートから取得するため、先頭に / を付与
   try {
     if (headerElem) {
-      const hRes = await fetch('/parts/header.html');
+      const hRes = await fetch('./parts/header.html');
       if (hRes.ok) {
         headerElem.innerHTML = await hRes.text();
         initMobileMenu(); 
       }
     }
     if (footerElem) {
-      const fRes = await fetch('/parts/footer.html');
+      const fRes = await fetch('./parts/footer.html');
       if (fRes.ok) {
         footerElem.innerHTML = await fRes.text();
       }
@@ -571,7 +571,7 @@ async function initNews() {
     if (articles.length > 0 && featuredArea) {
       const first = articles[0];
       featuredArea.innerHTML = `
-        <a href="/news/detail.html?id=${first.id}" class="featured-link">
+        <a href="./news/detail.html?id=${first.id}" class="featured-link">
           <div class="featured-image-wrapper">
             <img src="${first.thumbnail?.url || './assets/images/no-image.jpg'}" alt="">
           </div>
@@ -588,7 +588,7 @@ async function initNews() {
     if (articles.length > 1 && newsList) {
       newsList.innerHTML = articles.slice(1).map(item => `
         <li class="news-item">
-          <a href="/news/detail.html?id=${item.id}" class="news-link">
+          <a href="./news/detail.html?id=${item.id}" class="news-link">
             <div class="news-meta">
               <span class="news-date">${formatDate(item.date)}</span>
               <span class="category-tag">お知らせ</span>
