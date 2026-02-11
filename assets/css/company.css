@@ -242,6 +242,100 @@
     white-space: nowrap;
   }
   
+  /* 共通のオレンジラベルとカードスタイル for SERVICEセクション */
+.service-section {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+/* オレンジのタイトルラベル */
+.label-orange {
+  display: inline-block;
+  background: linear-gradient(to right, #ff4e00, #ff8c00);
+  color: white;
+  padding: 8px 40px;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* メインカードのレイアウト */
+.service-main-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.service-flex {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.service-text { flex: 1.5; font-size: 0.95rem; line-height: 1.8; }
+.service-image { flex: 1; }
+.service-image img { width: 100%; border-radius: 10px; }
+
+/* 5つの白いサブカード */
+.sub-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 1行に3つ */
+  gap: 15px;
+}
+
+.sub-card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* センター業務受託のレイアウト */
+.center-service-flex {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 50px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.center-image { flex: 1; text-align: center; }
+.center-image img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+.center-content { flex: 1.5; }
+
+/* ★View Moreボタンのサイズ統一設定★ */
+.btn-more-standard {
+  display: inline-block;
+  width: 200px; /* 横幅を固定 */
+  height: 45px; /* 高さを固定 */
+  line-height: 45px; /* 文字を中央に */
+  padding: 0;
+  background: linear-gradient(to bottom, #ff5e00, #ff8c00);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #d34e00;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.btn-more-standard:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #d34e00;
+}
+
   /* スマホ対応 */
   @media (max-width: 768px) {
     .message-layout {
@@ -294,35 +388,85 @@
   }
   
   /* --- 4. History (沿革) --- */
-  .history-list {
-    border-left: 2px solid #FF5C00;
-    padding-left: 30px;
-    margin-left: 10px;
-  }
-  
-  .history-item {
-    position: relative;
-    margin-bottom: 30px;
-  }
-  
-  .history-item::before {
-    content: "";
-    position: absolute;
-    left: -37px;
-    top: 10px;
-    width: 12px;
-    height: 12px;
-    background: #FF5C00;
-    border-radius: 50%;
-  }
-  
-  .history-item .year {
-    display: block;
-    font-weight: 900;
-    font-size: 18px;
-    color: #FF5C00;
-    margin-bottom: 5px;
-  }
+/* 沿革セクション全体の調整 */
+.history-section {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.history-list {
+  max-width: 800px; /* デザインに合わせて幅を調整 */
+  margin: 0 auto;
+}
+
+/* 各アイテムのスタイル */
+.history-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 0;
+  border-bottom: 1.5px solid #ddd; /* 下の区切り線 */
+}
+
+.history-item.is-hidden {
+  display: none;
+}
+
+/* 年号（左側）のスタイル */
+.year {
+  width: 140px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #333;
+  position: relative;
+  margin-right: 40px;
+  flex-shrink: 0;
+}
+
+/* 説明文（右側）のスタイル */
+.desc {
+  flex: 1;
+  text-align: left;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* View More ボタンのコンテナ */
+.view-more-container {
+  margin-top: 40px;
+}
+
+/* デザイン案に近いグラデーションボタン */
+.btn-more {
+  display: inline-block;
+  position: relative;
+  padding: 12px 60px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(to bottom, #ff5e00, #ff8c00); /* オレンジのグラデーション */
+  border: none;
+  border-radius: 8px; /* 角丸を少し抑える */
+  box-shadow: 0 4px 0 #d34e00; /* 立体感 */
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-more:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #d34e00;
+}
+
+/* ボタンの下の小さな矢印（∨）を再現 */
+.btn-more::after {
+  content: "∨";
+  display: block;
+  font-size: 0.8rem;
+  margin-top: -5px;
+}
   
   /* --- レスポンシブ (スマホ対応) --- */
   @media (max-width: 768px) {
