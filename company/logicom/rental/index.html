@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>レンタル倉庫（屋外型） | 株式会社ロジコム</title>
+  <meta name="description" content="ロジコムの屋外型レンタル倉庫。24時間365日出し入れ自由、車での乗り入れも可能。警備会社管理の安心セキュリティを完備しています。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+    .feature-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--main-orange);
+    }
+    .feature-card h3 {
+      font-size: 1.2rem;
+      color: var(--main-orange);
+      margin-bottom: 15px;
+      font-weight: 700;
+      border-bottom: 1px dashed #ddd;
+      padding-bottom: 10px;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    .price-table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 40px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 20px;
+    }
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+    .price-table th, .price-table td {
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+    .price-table th {
+      background: #f9f9f9;
+      color: var(--main-orange);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .price-highlight {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #333;
+    }
+    .unit { font-size: 0.8rem; font-weight: normal; }
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page-rental">
+
+  <header class="header" id="header-include"></header>
+
+  <main>
+    <section class="company-hero">
+      <div class="hero-map-bg">
+        <img src="../../../assets/images/rental-hero.jpg" alt="レンタル倉庫" class="map-bg" onerror="this.src='../../../assets/images/saga-hero.png'">
+        <div class="company-badge-container">
+          <div class="company-badge-rect">
+            <div class="logo-white-box-rect">
+              <span style="font-family: 'Alfa Slab One'; font-size: 2.5rem; color: var(--main-orange);">RENTAL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="company-section">
+      <div class="section-bg-text">RENTAL</div>
+      
+      <div class="container">
+        <h2 class="title-orange">RENTAL WAREHOUSE</h2>
+        
+        <div class="message-layout" style="display: block; margin-bottom: 50px;">
+          <p class="message-lead" style="text-align: center; border-left: none; font-size: 1.1rem;">
+            屋外型だからこそ、より安心のセキュリティシステムを完備。<br>
+            佐賀市木原（北川副小学校西側）に設置、24時間365日出し入れ自由です。
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>24時間 簡単出し入れ</h3>
+            <p>
+              お客様のご都合に合わせて24時間365日、自由に出し入れができます。<br>
+              また、お車でそれぞれの倉庫間口まで乗り入れ可能となっており、重い荷物の出し入れも楽に行えます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>安心のセキュリティ</h3>
+            <p>
+              当社と提携した警備会社の管理のもと、直通のセキュリティシステムをコンテナごとに備えています。<br>
+              屋外型ですが、万が一の際にも安心です。
+            </p>
+          </div>
+        </div>
+
+        <h4 style="font-weight: 700; margin-bottom: 15px; color: #333;">■ タイプ別サイズ・月額料金（税抜）</h4>
+        <div class="price-table-wrapper">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>タイプ</th>
+                <th>寸法（幅×奥行×高さ）</th>
+                <th>容積</th>
+                <th>月額料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1.58m²タイプ</strong></td>
+                <td>0.88m × 1.80m × 1.85m</td>
+                <td>2.93m³</td>
+                <td class="price-highlight">5,980<span class="unit">円</span></td>
+              </tr>
+              <tr>
+                <td><strong>3.16m²タイプ</strong></td>
+                <td>1.755m × 1.80m × 1.85m</td>
+                <td>5.84m³</td>
+                <td class="price-highlight">10,000<span class="unit">円</span></td>
+              </tr>
+              <tr>
+                <td><strong>6.32m²タイプ</strong></td>
+                <td>3.50m × 1.80m × 1.85m</td>
+                <td>11.66m³</td>
+                <td class="price-highlight">18,000<span class="unit">円</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top: 15px; font-size: 0.9rem; color: #666; line-height: 1.6;">
+            ※別途基本保証料として月額料金2か月分がかかります。<br>
+            ※基本保証料に関しましては、ご利用者様の過失による損害等が見受けられない場合に限り、解約の際に返還いたします。
+          </p>
+        </div>
+        
+
+        <div style="background: #fff; padding: 20px; border-radius: 10px; border-left: 5px solid #333; margin-top: 40px;">
+          <h4 style="margin: 0 0 5px 0; font-weight: 700;">レンタル倉庫 所在地</h4>
+          <p style="margin: 0;">佐賀市木原二丁目59-5（北川副小学校西側）</p>
+          </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer-include"></footer>
+
+  <script src="../../../assets/js/auth.js"></script>
+  <script src="../../../assets/js/main.js"></script>
+  <script src="../../main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if(typeof gsap !== 'undefined') {
+         gsap.from(".feature-card", {
+            scrollTrigger: {
+                trigger: ".features-grid",
+                start: "top 80%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power3.out"
+         });
+      }
+    });
+  </script>
+</body>
+</html>

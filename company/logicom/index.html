@@ -75,16 +75,14 @@
               <p>時代の変化にいち早く対応する、安心の物流サポート。私たちは、お客様のニーズにお応えしながら、物流コストの削減と、未来へ向けた成長を強力にサポートしてまいります。<br>
               多彩な車両と経験豊かなドライバー、安心・便利な輸送システムで、地域の"あたりまえ"を支えます。</p>
               
-              <div class="sub-service-grid">
-                <div class="sub-card">輸送システム</div>
-                <div class="sub-card">保有車両</div>
-                <div class="sub-card">WEB受注システム</div>
-                <div class="sub-card">軽貨物運送</div>
-                <div class="sub-card">陸送</div>
+              <div class="sub-service-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <button class="sub-card" onclick="location.href='./transport/'">輸送システム</button>
+                <button class="sub-card" onclick="location.href='./vehicles/'">保有車両</button>
+                <button class="sub-card" onclick="location.href='./web_order/'">WEB受注システム</button>
               </div>
             </div>
             <div class="service-visual">
-              <img src="./assets/images/truck-main.jpg" alt="運送トラック">
+              <img src="./assets/images/truck-main.jpg" alt="運送トラック" onerror="this.src='https://placehold.jp/600x400.png?text=Truck+Image'">
             </div>
           </div>
         </div>
@@ -96,7 +94,7 @@
               <p>当社では、お客様の物流改善の一環としてアウトソーシングのご提案を行い、パートナーとして運営・管理をしています。<br>
               私たちは、いつでも何でも相談できる『御社の物流部』として、これまでに培ったノウハウや最新の知見を基に、お客様に最適な仕組みをご提案します。</p>
               <div class="view-more-container">
-                <button class="btn-more-standard">View more <span>»</span></button>
+                <button onclick="location.href='./outsourcing'" class="btn-more-standard">View more <span>»</span></button>
               </div>
             </div>
             <div class="service-visual">
@@ -113,22 +111,22 @@
               また、屋内・屋外型など4つのタイプのコンテナをご用意し、個人様の家財から法人様の業務用品まで、幅広いニーズにお応えしています。</p>
               
               <div class="storage-image-grid">
-                <div class="storage-item">
+                <a href="./warehouse" class="storage-item">
                   <img src="./assets/images/service1.jpg" alt="物流倉庫">
                   <div class="item-footer">物流倉庫 <span>→</span></div>
-                </div>
-                <div class="storage-item">
+                </a>
+                <a href="./armoire" class="storage-item">
                   <img src="./assets/images/service2.jpg" alt="押入れ産業">
                   <div class="item-footer">押入れ産業 <span>→</span></div>
-                </div>
-                <div class="storage-item">
+                </a>
+                <a href="./keep" class="storage-item">
                   <img src="./assets/images/service3.jpg" alt="The Keep">
                   <div class="item-footer">The Keep <span>→</span></div>
-                </div>
-                <div class="storage-item">
+                </a>
+                <a href="./rental" class="storage-item">
                   <img src="./assets/images/service4.jpg" alt="レンタル倉庫">
                   <div class="item-footer">レンタル倉庫 <span>→</span></div>
-                </div>
+                </a>
               </div>
             </div>
             <div class="service-visual">

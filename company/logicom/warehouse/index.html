@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>物流倉庫 | 株式会社ロジコム</title>
+  <meta name="description" content="ロジコムの物流倉庫サービス。商品や商流にマッチした設備、自社スタッフによる高品質な管理、効率化によるコスト削減、流通加工などのオプションサービスをご提供します。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* 特徴を並べるグリッドレイアウト */
+    .warehouse-features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .feature-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border-top: 5px solid var(--main-orange);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-number {
+      font-family: 'Alfa Slab One', serif;
+      font-size: 3rem;
+      color: #eaeaea;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .feature-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--main-orange);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .feature-text {
+      font-size: 1rem;
+      color: #555;
+      text-align: justify;
+    }
+
+    /* CTAセクション */
+    .warehouse-cta {
+      background: linear-gradient(135deg, #FF9500, #FF5C00);
+      border-radius: 20px;
+      padding: 60px 20px;
+      text-align: center;
+      color: #fff;
+      margin-top: 80px;
+      box-shadow: 0 10px 30px rgba(255, 92, 0, 0.2);
+    }
+
+    .warehouse-cta h3 {
+      font-size: 1.8rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .btn-white {
+      display: inline-block;
+      background: #fff;
+      color: var(--main-orange);
+      padding: 15px 50px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .btn-white:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .warehouse-features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .feature-box {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body class="page-warehouse">
+
+  <header class="header" id="header-include"></header>
+
+  <main>
+    <section class="company-hero">
+      <div class="hero-map-bg">
+        <img src="../../../assets/images/saga-hero.png" alt="物流倉庫" class="map-bg">
+        <div class="company-badge-container">
+          <div class="company-badge-rect">
+            <div class="logo-white-box-rect">
+              <span style="font-family: 'Alfa Slab One'; font-size: 2.5rem; color: var(--main-orange);">WH</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="company-section">
+      <div class="section-bg-text">WAREHOUSE</div>
+      
+      <div class="container">
+        <h2 class="title-orange">LOGISTICS WAREHOUSE</h2>
+        
+        <div class="message-layout" style="display: block; margin-bottom: 60px;">
+          <p class="message-lead" style="text-align: center; border-left: none; font-size: 1.2rem;">
+            保管から配送まで、一貫した高品質サービス。<br>
+            お客様の「物流部」として、最適なソリューションを提供します。
+          </p>
+        </div>
+
+        <div class="warehouse-features-grid">
+          
+          <div class="feature-box">
+            <div class="feature-number">01</div>
+            <h3 class="feature-title">商品や商流にマッチした<br>設備と機能をご提供</h3>
+            <p class="feature-text">
+              少量多頻度化する近年の商流の変化にも、柔軟に対応できる設備とスタッフを整えています。お客様の商品特性に合わせた最適な保管環境と、変動する入出荷量にも即応できる体制を構築しています。
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-number">02</div>
+            <h3 class="feature-title">自社のスタッフと車両による<br>徹底した品質管理</h3>
+            <p class="feature-text">
+              スタッフは全員当社の社員です。作業品質の向上のため、教育訓練や労働環境の整備・改善にも積極的に取り組んでいます。<br>
+              また、自社の多様な設備や車両を維持し、保管だけではなく、商品の移送から配送まで一貫した安全で高品質なサービスの提供を実現しています。
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-number">03</div>
+            <h3 class="feature-title">作業効率化を図り<br>物流コスト削減の推進</h3>
+            <p class="feature-text">
+              生産性の向上を図ることで人件費が削減され、コスト競争力を高めています。また、作業負荷の集中を防ぐことで作業品質の向上を図っています。ムリ・ムダ・ムラのないオペレーションで、お客様の利益最大化に貢献します。
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-number">04</div>
+            <h3 class="feature-title">入出庫・保管に加えて<br>様々なオプションサービスのご提供</h3>
+            <p class="feature-text">
+              単なる保管業務にとどまらず、流通加工（値札付け・検品・梱包など）のほか、受発注の代行、返品受け入れ、モード別配送手配など、物流に付帯する様々なサービスをワンストップでご提供します。
+            </p>
+          </div>
+
+        </div>
+
+        <div class="warehouse-cta">
+          <h3>倉庫保管・発送代行のご相談</h3>
+          <p>
+            「今の倉庫コストを見直したい」「発送業務をアウトソーシングしたい」<br>
+            そんなお悩みをお持ちの方は、ぜひ一度お問い合わせください。
+          </p>
+          <a href="../../contact/" class="btn-white">お問い合わせフォームへ</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer-include"></footer>
+
+  <script src="../../../assets/js/auth.js"></script>
+  <script src="../../../assets/js/main.js"></script>
+  <script src="../../main.js"></script>
+  <script>
+    // 簡易的なアニメーション適用 (main.jsの読み込み順によっては動作しない場合があるため念のため)
+    document.addEventListener('DOMContentLoaded', () => {
+      if(typeof gsap !== 'undefined') {
+         gsap.from(".feature-box", {
+            scrollTrigger: {
+                trigger: ".warehouse-features-grid",
+                start: "top 80%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out"
+         });
+      }
+    });
+  </script>
+</body>
+</html>

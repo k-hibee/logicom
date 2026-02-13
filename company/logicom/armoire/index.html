@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>押入れ産業・トランクルーム | 株式会社ロジコム</title>
+  <meta name="description" content="ロジコムの押入れ産業（トランクルーム）サービス。防塵・防カビに優れた専用コンテナで大切なお荷物を保管します。ご自宅や会社に設置できるレンタルコンテナもご用意。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* 特徴グリッド */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      border-bottom: 4px solid var(--main-orange);
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      color: var(--main-orange);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    /* 料金テーブル */
+    .price-table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 40px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 20px;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    .price-table th, .price-table td {
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+
+    .price-table th {
+      background: #f9f9f9;
+      color: var(--main-orange);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .price-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .price-highlight {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #333;
+    }
+    
+    .unit { font-size: 0.8rem; font-weight: normal; }
+
+    /* セクション区切り */
+    .section-divider {
+      margin: 80px 0;
+      border-top: 2px dashed #ddd;
+    }
+
+    /* 外部リンクボタン */
+    .btn-external {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #333;
+      color: #fff;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    .btn-external:hover {
+      background: var(--main-orange);
+      transform: translateY(-3px);
+    }
+
+    /* パンくずリスト */
+    .breadcrumb {
+      margin-top: 60px;
+      font-size: 0.85rem;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .breadcrumb span { font-family: 'Material Icons', sans-serif; font-size: 14px; }
+
+    /* レスポンシブ */
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page-oshiire">
+
+  <header class="header" id="header-include"></header>
+
+  <main>
+    <section class="company-hero">
+      <div class="hero-map-bg">
+        <img src="../../../assets/images/oshiire-hero.jpg" alt="押入れ産業" class="map-bg" onerror="this.src='../../../assets/images/saga-hero.png'">
+        <div class="company-badge-container">
+          <div class="company-badge-rect">
+            <div class="logo-white-box-rect">
+              <span style="font-family: 'Alfa Slab One'; font-size: 2.5rem; color: var(--main-orange);">TRUNK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="company-section">
+      <div class="section-bg-text">TRUNK ROOM</div>
+      
+      <div class="container">
+        <h2 class="title-orange">OSHIIRE SANGYO</h2>
+        
+        <div class="message-layout" style="display: block; margin-bottom: 50px;">
+          <p class="message-lead" style="text-align: center; border-left: none; font-size: 1.1rem;">
+            全国125店舗、昭和62年の創業以来、のべ30万人以上のご利用実績。<br>
+            お客様の荷物を倉庫内の専用コンテナに収納し、安全に保管するスペースを提供しています。
+          </p>
+        </div>
+
+        <h3 class="label-orange">倉庫内タイプ</h3>
+        <p style="margin-bottom: 30px;">
+          「安全・安心」を第一に、倉庫の中にコンテナを設置しています。<br>
+          機密文書専用のコンテナもご用意できます。
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>高品質の収納コンテナ</h3>
+            <p>保管専用に開発された「防塵・防カビ」に優れた専用のコンテナを使用し、お客様からお預かりした収納品をホコリや劣化から守っています。</p>
+          </div>
+          <div class="feature-card">
+            <h3>プライベート収納空間</h3>
+            <p>当社スタッフとお客様立会いのもとコンテナごとに封印をしますので、セキュリティ面でも安心してご利用いただけます。</p>
+          </div>
+          <div class="feature-card">
+            <h3>倉庫内で大事に保管</h3>
+            <p>空調管理された倉庫内にコンテナを設置するため、屋外型コンテナに比べて温度・湿度の影響を受けにくく、お荷物を大切に保管します。</p>
+          </div>
+        </div>
+
+        <h4 style="font-weight: 700; margin-bottom: 15px; color: #333;">■ コンテナサイズ・料金表（税抜）</h4>
+        <div class="price-table-wrapper">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>サイズ</th>
+                <th>寸法（幅×奥行×高さ）</th>
+                <th>容積</th>
+                <th>月額料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sサイズ</strong></td>
+                <td>1.33m × 1.38m × 1.44m</td>
+                <td>2.64m³</td>
+                <td class="price-highlight">7,000<span class="unit">円</span></td>
+              </tr>
+              <tr>
+                <td><strong>Mサイズ</strong></td>
+                <td>1.73m × 1.73m × 1.80m</td>
+                <td>5.39m³</td>
+                <td class="price-highlight">10,000<span class="unit">円</span></td>
+              </tr>
+              <tr>
+                <td><strong>Lサイズ</strong></td>
+                <td>1.93m × 1.93m × 1.94m</td>
+                <td>7.23m³</td>
+                <td class="price-highlight">12,000<span class="unit">円</span></td>
+              </tr>
+              <tr>
+                <td><strong>LHサイズ</strong></td>
+                <td>2.14m × 1.43m × 2.08m</td>
+                <td>7.17m³</td>
+                <td class="price-highlight">14,000<span class="unit">円</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="https://www.oshiire.co.jp/" target="_blank" class="btn-external">
+            押入れ産業 公式HPへ <span style="font-size: 1.2em;">↗</span>
+          </a>
+        </div>
+
+
+        <div class="section-divider"></div>
+
+
+        <h3 class="label-orange">設置型コンテナ</h3>
+        <p style="margin-bottom: 30px;">
+          ご自宅の庭先や会社の敷地内に設置でき、お荷物の出し入れがその場で自由にできますので効率化が図れます。<br>
+          お荷物の出し入れの手間を大幅に効率化できます。
+        </p>
+
+        <div class="service-card" style="margin-bottom: 40px;">
+          <div class="service-flex">
+            <div class="service-body">
+              <h3 style="color: var(--main-orange); font-weight: 700; margin-bottom: 15px;">選べるカラーと簡単設置</h3>
+              <p style="margin-bottom: 20px;">
+                コンテナは、3色（ホワイト、ライトグリーン、エンジ）を用意。お好みによりお好きな色をお選びいただけます。<br>
+                コンテナの搬送から設置まで当社の専門スタッフが一貫して行いますので手間がかかりません。<br>
+                <small style="color: #888;">※立地条件によっては設置できない場合があります。</small>
+              </p>
+            </div>
+            <div class="service-visual">
+              <img src="../../../assets/images/container-setup.jpg" alt="設置型コンテナ" onerror="this.src='../../../assets/images/warehouse-sub.jpg'">
+            </div>
+          </div>
+        </div>
+
+        <h4 style="font-weight: 700; margin-bottom: 15px; color: #333;">■ 設置型コンテナ仕様・料金（税抜）</h4>
+        <div class="price-table-wrapper">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>仕様・内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>外寸</strong></td>
+                <td>幅 2,053mm × 奥行 1,603mm × 高さ 2,091mm</td>
+              </tr>
+              <tr>
+                <td><strong>内寸</strong></td>
+                <td>幅 1,964mm × 奥行 1,528mm × 高さ 2,002mm</td>
+              </tr>
+              <tr>
+                <td><strong>容積・重量</strong></td>
+                <td>容積：6m³ / 自重：390kg</td>
+              </tr>
+              <tr>
+                <td><strong>月額料金</strong></td>
+                <td class="price-highlight">10,000<span class="unit">円</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+            ※運搬・設置料を別途申し受けます。<br>
+            ※ご利用の際には事前のご予約が必要です。
+          </p>
+        </div>
+
+        <div style="background: #fff; padding: 20px; border-radius: 10px; border-left: 5px solid #333;">
+          <h4 style="margin: 0 0 5px 0; font-weight: 700;">押入れ産業 佐賀店（受付・保管場所）</h4>
+          <p style="margin: 0;">〒849-0936 佐賀市鍋島町大字森田2439-1（ロジコム倉庫内）</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer-include"></footer>
+
+  <script src="../../../assets/js/auth.js"></script>
+  <script src="../../../assets/js/main.js"></script>
+  <script src="../../main.js"></script>
+  <script>
+    // Simple Animation
+    document.addEventListener('DOMContentLoaded', () => {
+      if(typeof gsap !== 'undefined') {
+         gsap.from(".feature-card", {
+            scrollTrigger: {
+                trigger: ".features-grid",
+                start: "top 80%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power3.out"
+         });
+      }
+    });
+  </script>
+</body>
+</html>

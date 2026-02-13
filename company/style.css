@@ -308,6 +308,38 @@ ul { list-style: none; padding: 0; margin: 0; }
   transition: all 0.3s ease;
 }
 
+/* buttonタグ用のスタイルリセットとデザイン適用 */
+button.sub-card {
+  width: 100%;
+  display: block;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 12px 5px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 5px;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  
+  /* buttonタグ特有のスタイルリセット */
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+/* ホバー時のスタイル */
+button.sub-card:hover {
+  background: var(--main-orange);
+  color: #fff;
+  border-color: var(--main-orange);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(255, 92, 0, 0.3);
+}
+
 /* 倉庫セクション内の4枚グリッド */
 .storage-image-grid {
   display: grid;

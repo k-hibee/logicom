@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Keep（文書・家財保管） | 株式会社ロジコム</title>
+  <meta name="description" content="ロジコムの「The Keep」。本社敷地内で有人管理された屋内型保管コンテナです。断熱構造と防腐・防カビ仕様で、家財や重要書類を大切に保管します。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* 特徴グリッド（共通） */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--main-orange);
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      color: var(--main-orange);
+      margin-bottom: 15px;
+      font-weight: 700;
+      border-bottom: 1px dashed #ddd;
+      padding-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* 料金テーブル（共通） */
+    .price-table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 40px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 20px;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    .price-table th, .price-table td {
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+
+    .price-table th {
+      background: #f9f9f9;
+      color: var(--main-orange);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .price-highlight {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #333;
+    }
+    
+    .unit { font-size: 0.8rem; font-weight: normal; }
+
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page-keep">
+
+  <header class="header" id="header-include"></header>
+
+  <main>
+    <section class="company-hero">
+      <div class="hero-map-bg">
+        <img src="../../../assets/images/keep-hero.jpg" alt="The Keep" class="map-bg" onerror="this.src='../../../assets/images/saga-hero.png'">
+        <div class="company-badge-container">
+          <div class="company-badge-rect">
+            <div class="logo-white-box-rect">
+              <span style="font-family: 'Alfa Slab One'; font-size: 2.5rem; color: var(--main-orange);">KEEP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="company-section">
+      <div class="section-bg-text">THE KEEP</div>
+      
+      <div class="container">
+        <h2 class="title-orange">The Keep</h2>
+        
+        <div class="message-layout" style="display: block; margin-bottom: 50px;">
+          <p class="message-lead" style="text-align: center; border-left: none; font-size: 1.1rem;">
+            本社敷地内で有人管理をしています。<br>
+            余裕の容積をお手頃価格でご利用いただけます。
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>快適構造</h3>
+            <p>
+              屋内保管型のコンテナのうえ、防腐・防カビ処理済みの合板仕様と内外壁間に空間を設けた断熱構造のコンテナです。<br>
+              湿気や温度変化の影響を受けにくく、大切なお荷物を守ります。
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>余裕の容積</h3>
+            <p>
+              押入れ3間分に相当する余裕の容積です。<br>
+              高さも高い（2m）ため、分解の困難な大型の家具や電化製品などもそのまま収納できます。
+            </p>
+          </div>
+        </div>
+
+        <h4 style="font-weight: 700; margin-bottom: 15px; color: #333;">■ コンテナ仕様・月額料金（税抜）</h4>
+        <div class="price-table-wrapper">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>寸法（幅×奥行×高さ）</th>
+                <th>面積</th>
+                <th>容積</th>
+                <th>月額料金</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2.93m × 1.42m × 2.00m</td>
+                <td>4.16m²</td>
+                <td>8.32m³</td>
+                <td class="price-highlight">11,000<span class="unit">円</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        [Image of container storage dimensions and capacity visualization]
+
+        <div style="background: #fff; padding: 20px; border-radius: 10px; border-left: 5px solid #333; margin-top: 40px;">
+          <h4 style="margin: 0 0 5px 0; font-weight: 700;">The Keep 所在地</h4>
+          <p style="margin: 0;">〒849-0936 佐賀市鍋島町大字森田2439-1（ロジコム倉庫内）</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer-include"></footer>
+
+  <script src="../../../assets/js/auth.js"></script>
+  <script src="../../../assets/js/main.js"></script>
+  <script src="../../main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if(typeof gsap !== 'undefined') {
+         gsap.from(".feature-card", {
+            scrollTrigger: {
+                trigger: ".features-grid",
+                start: "top 80%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power3.out"
+         });
+      }
+    });
+  </script>
+</body>
+</html>

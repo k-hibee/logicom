@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>センター業務受託（3PL） | 株式会社ロジコム</title>
+  <meta name="description" content="ロジコムのセンター業務受託（アウトソーシング）。お客様の物流部門の課題を解決し、メイン事業への集中をサポート。導入フローや事例をご紹介します。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* 基本理念グリッド */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+      margin-bottom: 80px;
+    }
+
+    .philosophy-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-left: 5px solid var(--main-orange);
+    }
+
+    .philosophy-card h3 {
+      font-size: 1.2rem;
+      color: var(--main-orange);
+      margin-bottom: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .philosophy-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* 導入フローステップ */
+    .flow-steps {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto 80px;
+    }
+
+    /* 縦線 */
+    .flow-steps::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: 4px;
+      height: 100%;
+      background: #eee;
+      z-index: 0;
+    }
+
+    .flow-item {
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 60px;
+    }
+
+    .flow-number {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--main-orange);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: 'Alfa Slab One', serif;
+      z-index: 1;
+      box-shadow: 0 0 0 5px #fff; /* 白枠で線を隠す */
+    }
+
+    .flow-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .flow-content h4 {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 700;
+      border-bottom: 1px dashed #ddd;
+      padding-bottom: 10px;
+    }
+
+    .flow-content p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* 事例紹介グリッド */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+
+    .case-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--main-orange);
+    }
+
+    .case-header {
+      background: #f9f9f9;
+      padding: 20px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #333;
+      border-bottom: 1px solid #eee;
+    }
+
+    .case-body {
+      padding: 20px;
+    }
+
+    .case-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .case-list li {
+      margin-bottom: 8px;
+      padding-left: 15px;
+      position: relative;
+    }
+
+    .case-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--main-orange);
+    }
+    
+    .case-sub-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--main-orange);
+      margin-top: 15px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    /* 相談チェックリストエリア */
+    .consult-area {
+      background: linear-gradient(135deg, #FF9500, #FF5C00);
+      border-radius: 20px;
+      padding: 50px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .check-list {
+      list-style: none;
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: left;
+    }
+
+    .check-list li {
+      background: rgba(255,255,255,0.15);
+      margin-bottom: 10px;
+      padding: 12px 20px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .check-list li .material-icons {
+      color: #fff;
+    }
+
+    .btn-white {
+      display: inline-block;
+      background: #fff;
+      color: var(--main-orange);
+      padding: 15px 50px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .btn-white:hover {
+      transform: scale(1.05);
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 900px) {
+      .philosophy-grid, .case-grid { grid-template-columns: 1fr; }
+      .flow-steps::before { left: 15px; }
+      .flow-item { padding-left: 50px; }
+      .flow-number { width: 34px; height: 34px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body class="page-outsourcing">
+
+  <header class="header" id="header-include"></header>
+
+  <main>
+    <section class="company-hero">
+      <div class="hero-map-bg">
+        <img src="../../../assets/images/saga-hero.png" alt="センター業務受託" class="map-bg" onerror="this.src='../../assets/images/saga-hero.png'">
+        <div class="company-badge-container">
+          <div class="company-badge-rect">
+            <div class="logo-white-box-rect">
+              <span style="font-family: 'Alfa Slab One'; font-size: 2.5rem; color: var(--main-orange);">CENTER</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="company-section">
+      <div class="section-bg-text">OUTSOURCING</div>
+      
+      <div class="container">
+        <h2 class="title-orange">CENTER OUTSOURCING</h2>
+        
+        <div class="message-layout" style="display: block; margin-bottom: 60px;">
+          <p class="message-lead" style="text-align: center; border-left: none; font-size: 1.2rem;">
+            お客様の"困った"を改善し、メイン事業への集中をサポート。<br>
+            「下請け」ではなく「パートナー」として、共に成長します。
+          </p>
+          <div style="max-width: 800px; margin: 0 auto; text-align: justify; line-height: 2; color: #555;">
+            <p>
+              ロジコムのアウトソーシングは、お客様の事業の中で物流に関連する部門の問題点をプロの視点から明らかにし、最適な改善策をご提案するものです。<br>
+              従来の下請けや単なる3PL（サード・パーティ・ロジスティクス）という枠を超え、お客様と一体となって常に問題意識を持ち、共に成長していくことを目指しています。<br>
+              信頼関係を基盤に、常にお客様の視点に立った最適な物流システムをご提案します。
+            </p>
+          </div>
+        </div>
+        
+
+        <h3 class="label-orange">基本理念</h3>
+        <div class="philosophy-grid">
+          <div class="philosophy-card">
+            <h3><span class="material-icons">handshake</span> パートナーシップ</h3>
+            <p>お客様の経営戦略を理解し、協力関係を築き共に成長する姿勢を貫きます。</p>
+          </div>
+          <div class="philosophy-card">
+            <h3><span class="material-icons">verified</span> 専門特化</h3>
+            <p>お客様が同業他社に対して差別化を図れるように、あらゆるノウハウを駆使しプロとして対応します。</p>
+          </div>
+          <div class="philosophy-card">
+            <h3><span class="material-icons">trending_up</span> 向上心</h3>
+            <p>常に問題意識を持ち、PDCAサイクルによる継続的改善を図ります。</p>
+          </div>
+          <div class="philosophy-card">
+            <h3><span class="material-icons">lock</span> 機密保持</h3>
+            <p>お客様との守秘義務を徹底し、信頼を守ります。</p>
+          </div>
+        </div>
+
+        <h3 class="label-orange">導入までの流れ</h3>
+        
+        <div class="flow-steps">
+          <div class="flow-item">
+            <div class="flow-number">01</div>
+            <div class="flow-content">
+              <h4>ヒアリング</h4>
+              <p>直面している問題点や改善したい内容を、組織や業務内容ごとにヒアリングします。併せて物流業務の現状分析を行い、課題を明らかにします。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-number">02</div>
+            <div class="flow-content">
+              <h4>プランの構築</h4>
+              <p>分析結果をもとに、お客様ごとに特化したプランを構築します。経営戦略に則り、どこをどう改善すれば最適か、ご納得いただけるまで打ち合わせを行います。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-number">03</div>
+            <div class="flow-content">
+              <h4>導入</h4>
+              <p>プラン決定後、導入のための詳細な打ち合わせを行い、アウトソーシングへの移行がスムーズに進むよう準備します。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-number">04</div>
+            <div class="flow-content">
+              <h4>運用開始</h4>
+              <p>アウトソーシングプランに基づき、実際の運用を開始します。プロフェッショナルなスタッフが業務を遂行します。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-number">05</div>
+            <div class="flow-content">
+              <h4>アフターフォロー</h4>
+              <p>運用開始後も、より良い物流システムへ進化させるため、PDCAサイクルを回し継続的な改善を図っていきます。</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="label-orange">アウトソーシング事例</h3>
+        <p style="margin-bottom: 30px; text-align: center;">お客様ごとに特化した物流システムを構築し運営している事例の一部です。</p>
+        
+        <div class="case-grid">
+          <div class="case-card">
+            <div class="case-header">製品工場</div>
+            <div class="case-body">
+              <span class="case-sub-title">工場内入荷出荷業務</span>
+              <ul class="case-list">
+                <li>製品仕分け</li>
+                <li>製品積込み</li>
+                <li>原材料受入れ</li>
+              </ul>
+              <span class="case-sub-title">製品保管業務</span>
+              <ul class="case-list">
+                <li>製品入荷出荷</li>
+                <li>保管管理</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-card">
+            <div class="case-header">機械部品センター</div>
+            <div class="case-body">
+              <span class="case-sub-title">センター業務</span>
+              <ul class="case-list">
+                <li>商品の受発注</li>
+                <li>商品受入れ・検品</li>
+                <li>保管管理</li>
+                <li>仕分け・出荷</li>
+              </ul>
+              <span class="case-sub-title">配送業務</span>
+              <ul class="case-list">
+                <li>県内エリア別配送</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-card">
+            <div class="case-header">食品宅配センター</div>
+            <div class="case-body">
+              <span class="case-sub-title">センター業務</span>
+              <ul class="case-list">
+                <li>食品受入れ・検品</li>
+                <li>食品保管管理</li>
+                <li>加工・仕分け</li>
+                <li>出荷</li>
+              </ul>
+              <span class="case-sub-title">配送業務</span>
+              <ul class="case-list">
+                <li>県内エリア別宅配</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="consult-area">
+          <h3>こんな時は、ぜひご相談ください！</h3>
+          <ul class="check-list">
+            <li><span class="material-icons">check_circle</span> メイン事業に経営資源を集約したい</li>
+            <li><span class="material-icons">check_circle</span> 物流部門の経費や管理コストを削減したい</li>
+            <li><span class="material-icons">check_circle</span> 現状の生産性を向上させたい</li>
+            <li><span class="material-icons">check_circle</span> 法令遵守など、物流部門の労務管理が難しい</li>
+            <li><span class="material-icons">check_circle</span> 外部要因に左右されず、品質を維持・向上させたい</li>
+          </ul>
+          <a href="../../../../contact" class="btn-white">お問い合わせフォームへ</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer-include"></footer>
+  <script src="../../../assets/js/auth.js"></script>
+  <script src="../../../assets/js/main.js"></script>
+  <script src="../../main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if(typeof gsap !== 'undefined') {
+         gsap.from(".philosophy-card", {
+            scrollTrigger: {
+                trigger: ".philosophy-grid",
+                start: "top 80%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power3.out"
+         });
+         
+         gsap.from(".flow-item", {
+            scrollTrigger: {
+                trigger: ".flow-steps",
+                start: "top 80%",
+            },
+            x: -20,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: "power3.out"
+         });
+      }
+    });
+  </script>
+</body>
+</html>

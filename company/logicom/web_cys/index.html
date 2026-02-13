@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEB受注システム | 株式会社ロジコム</title>
+  <meta name="description" content="ロジコムのWEB受注システム。24時間いつでも配送依頼や状況確認が可能。効率化とコスト削減を実現する無料のオンラインサービスです。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ログイン/CTAエリア */
+    .login-cta-box {
+      background: #fff;
+      border: 3px solid var(--main-orange);
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      margin: 40px 0 60px;
+      box-shadow: 0 10px 30px rgba(255, 92, 0, 0.1);
+    }
+
+    .btn-login {
+      display: inline-block;
+      background: linear-gradient(135deg, #FF9500, #FF5C00);
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      padding: 20px 60px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(255, 92, 0, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 20px;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 92, 0, 0.4);
+    }
+
+    /* メリットグリッド */
+    .merit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3カラム */
+      gap: 30px;
+      margin-top: 40px;
+      margin-bottom: 80px;
+    }
+
+    .merit-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      border-bottom: 4px solid var(--main-orange);
+    }
+
+    .merit-icon {
+      font-size: 3rem;
+      color: var(--main-orange);
+      margin-bottom: 15px;
+    }
+
+    .merit-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .merit-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    /* ご利用にあたって（リスト形式） */
+    .usage-guide-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .guide-item {
+      background: #f9f9f9;
+      border-left: 5px solid var(--main-orange);
+      padding: 20px 30px;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .guide-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--main-orange);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .guide-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    /* パンくずリスト */
+    .breadcrumb {
+      margin-top: 60px;
+      font-size: 0.85rem;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .breadcrumb span { font-family: 'Material Icons', sans-serif; font-size: 14px; }
+
+    @media (max-width: 900px) {
+      .merit-grid { grid-template-columns: 1fr; }
+      .btn-login { width: 100%; padding: 20px; font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body class="page-web-order">
+
+  <header class="header" id="header-include"></header>
+
+  <main>
+    <section class="company-hero">
+      <div class="hero-map-bg">
+        <img src="../../../assets/images/saga-hero.png" alt="WEB受注システム" class="map-bg" onerror="this.src='../../../assets/images/saga-hero.png'">
+        <div class="company-badge-container">
+          <div class="company-badge-rect">
+            <div class="logo-white-box-rect">
+              <span style="font-family: 'Alfa Slab One'; font-size: 2.5rem; color: var(--main-orange);">ORDER</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="company-section">
+      <div class="section-bg-text">WEB SYSTEM</div>
+      
+      <div class="container">
+        <h2 class="title-orange">WEB ORDER SYSTEM</h2>
+        
+        <div class="message-layout" style="display: block; margin-bottom: 30px;">
+          <p class="message-lead" style="text-align: center; border-left: none; font-size: 1.2rem;">
+            配車システムと連動し、配送のご依頼に効率的に対応。<br>
+            24時間365日、どこからでもアクセス可能です。
+          </p>
+          <div style="max-width: 800px; margin: 0 auto; line-height: 2; color: #555;">
+            <p>
+              『WEB受注システム』は、当社の配車システムと連動したシステムで、お客様の配送依頼をスムーズかつ確実に処理します。<br>
+              なお、ご利用にあたっては、事前にお客様専用のID、パスワードが必要になります。<br>
+              <strong>ID、パスワードの発行には一切、費用のご負担は必要ありません。</strong><br>
+              詳しくは、当社最寄りの営業所または担当者までご連絡ください。
+            </p>
+          </div>
+        </div>
+
+        <div class="login-cta-box">
+          <h3 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 10px;">お荷物の配送をご依頼される方はこちら</h3>
+          <p>ID・パスワードをお持ちのお客様は、以下よりログインしてください。</p>
+          <a href="http://www.weblc.jp/order" class="btn-login" target="_blank">
+            WEB受注システム ログイン <span class="material-icons" style="vertical-align: middle;">login</span>
+          </a>
+        </div>
+
+        <h3 class="label-orange">システムの流れ</h3>
+        <div style="margin-bottom: 80px; text-align: center;">
+          <img src="../../../assets/images/system-flow.jpg" alt="システムの流れ図" style="max-width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" onerror="this.src='https://placehold.jp/800x400.png?text=System+Flow+Image'">
+        </div>
+
+        <h3 class="label-orange">ご利用のメリット</h3>
+        <div class="merit-grid">
+          <div class="merit-card">
+            <div class="merit-icon material-icons">devices</div>
+            <h3>24時間どこからでも</h3>
+            <p>インターネット環境があればPCはもちろん、スマートフォンからでもOK。オフィスやご家庭、出先など、どこからでもご依頼や配送状況の確認が24時間可能です。</p>
+          </div>
+          <div class="merit-card">
+            <div class="merit-icon material-icons">trending_down</div>
+            <h3>効率化とコスト削減</h3>
+            <p>電話やFAXでやり取りする時間（効率化）と経費（人件費や通信料）が節約できます。ペーパーレス化にも貢献します。</p>
+          </div>
+          <div class="merit-card">
+            <div class="merit-icon material-icons">analytics</div>
+            <h3>管理資料として利用</h3>
+            <p>配送のデータ（履歴、距離、料金など）をシステム上で確認・出力できますので、お客様の社内管理業務にそのままご利用いただけます。</p>
+          </div>
+          <div class="merit-card">
+            <div class="merit-icon material-icons">check_circle</div>
+            <h3>発注ミスの軽減</h3>
+            <p>お客様ご自身による入力で申し送りミスが軽減できます。また、受注確認や配送完了報告のご案内により二重チェックを行っています。</p>
+          </div>
+          <div class="merit-card">
+            <div class="merit-icon material-icons">sentiment_satisfied_alt</div>
+            <h3>ご利用はもちろん無料</h3>
+            <p>運送経費以外、システム利用料などのコストをお客様にご負担いただくことはありません。（※インターネット通信にかかる費用は除きます）</p>
+          </div>
+        </div>
+
+        <h3 class="label-orange">システムのご利用にあたって</h3>
+        <div class="usage-guide-list">
+          
+          <div class="guide-item">
+            <div class="guide-title"><span class="material-icons">schedule</span> 受付時間について</div>
+            <div class="guide-text">
+              24時間承っています。<br>
+              ただし、午後6：00以降のご依頼で、翌日の午前9：00以前をご希望される場合は、お手数ですが担当者にご確認ください。
+            </div>
+          </div>
+
+          <div class="guide-item">
+            <div class="guide-title"><span class="material-icons">inventory_2</span> 複数の荷物をご依頼される場合</div>
+            <div class="guide-text">
+              主なお荷物を「ご依頼品欄」にご入力いただき、その他のお荷物については「備考欄」にご入力ください。
+            </div>
+          </div>
+
+          <div class="guide-item">
+            <div class="guide-title"><span class="material-icons">local_shipping</span> 複数の車両をご依頼される場合</div>
+            <div class="guide-text">
+              車種欄よりご希望の車種をお選びいただき、その下に台数をご入力ください。
+            </div>
+          </div>
+
+          <div class="guide-item">
+            <div class="guide-title"><span class="material-icons">help_outline</span> 車種・台数が不明な場合</div>
+            <div class="guide-text">
+              お荷物の量や種類に応じて、当社で最適な車種と台数を選択させていただきますのでご安心ください。
+            </div>
+          </div>
+
+          <div class="guide-item">
+            <div class="guide-title"><span class="material-icons">contact_phone</span> ご連絡先について</div>
+            <div class="guide-text">
+              ご担当者様に確実に連絡をお取りできる電話番号（携帯電話など）をご入力ください。
+            </div>
+          </div>
+
+          <div class="guide-item">
+            <div class="guide-title"><span class="material-icons">timer</span> ご希望の配送日時について</div>
+            <div class="guide-text">
+              天候や道路事情等により、ご希望の時刻に到着できないことがあります。<br>
+              その際には、当社より事前にご連絡し、時刻変更のご相談をさせていただきます。
+            </div>
+          </div>
+
+          <div class="guide-item">
+            <div class="guide-title"><span class="material-icons">manage_search</span> 配送状況・お問い合わせ</div>
+            <div class="guide-text">
+              配送状況については、システム内の「配送状況確認ページ」においていつでもご確認いただけます。<br>
+              その他ご不明な点やご質問などがございましたら、当社までお問い合わせください。
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer-include"></footer>
+
+  <script src="../../../assets/js/auth.js"></script>
+  <script src="../../../assets/js/main.js"></script>
+  <script src="../../main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if(typeof gsap !== 'undefined') {
+         gsap.from(".merit-card", {
+            scrollTrigger: {
+                trigger: ".merit-grid",
+                start: "top 85%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power3.out"
+         });
+
+         gsap.from(".guide-item", {
+            scrollTrigger: {
+                trigger: ".usage-guide-list",
+                start: "top 85%",
+            },
+            x: 20,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power2.out"
+         });
+      }
+    });
+  </script>
+</body>
+</html>
