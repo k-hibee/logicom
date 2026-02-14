@@ -204,65 +204,6 @@ const initScrollAnimations = () => {
 };
 
 /**
- * 8. ニュース取得 (microCMS)
- */
-async function initNews() {
-  const newsList = document.getElementById('news-list');
-  const featuredArea = document.getElementById('featured-area');
-  if (!newsList) return;
-
-  const SERVICE_DOMAIN = "logicom-group";
-  const API_KEY = "4AMLMkODPu5ZfrKlUpHFwkmDFshWj81IAsjS";
-
-  try {
-    const response = await fetch(`https://${SERVICE_DOMAIN}.microcms.io/api/v1/news?orders=-date&limit=4`, {
-      headers: { "X-MICROCMS-API-KEY": API_KEY }
-    });
-    if (!response.ok) return;
-    const data = await response.json();
-    const articles = data.contents;
-    if (articles.length === 0) return;
-
-    // 注目記事
-    // 注目記事の生成部分を修正
-    if (articles.length > 0 && featuredArea) {
-      const first = articles[0];
-      featuredArea.innerHTML = `
-        <a href="./news/detail.html?id=${first.id}" class="featured-link">
-          <div class="featured-image-wrapper">
-            <img src="${first.thumbnail?.url || './assets/images/no-image.jpg'}" alt="">
-          </div>
-          <div class="featured-info">
-            <div class="news-meta">
-              <span class="news-date">${formatDate(first.date)}</span>
-              <span class="category-tag">お知らせ</span>
-            </div>
-            <h3 class="featured-title">${first.title}</h3>
-          </div>
-        </a>`;
-    }
-  
-    if (articles.length > 1 && newsList) {
-      newsList.innerHTML = articles.slice(1).map(item => `
-        <li class="news-item">
-          <a href="./news/detail.html?id=${item.id}" class="news-link">
-            <div class="news-meta">
-              <span class="news-date">${formatDate(item.date)}</span>
-              <span class="category-tag">お知らせ</span>
-            </div>
-            <p class="news-title-text">${item.title}</p>
-          </a>
-        </li>`).join('');
-    }
-  } catch (e) { console.error(e); }
-}
-
-function formatDate(ds) {
-  const d = new Date(ds);
-  return `${d.getFullYear()}/${(d.getMonth()+1).toString().padStart(2,'0')}/${d.getDate().toString().padStart(2,'0')}`;
-}
-
-/**
  * 9. その他ユーティリティ
  */
 const initSmoothScroll = () => {
