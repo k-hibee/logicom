@@ -144,22 +144,6 @@ img { max-width: 100%; height: auto; display: block; }
   height: 20px;
 }
 
-/* 縦書きの日本語（ここを強力に修正） */
-.business-card-vertical {
-  /* フォント設定：日本語ゴシックを最優先 */
-  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif !important;
-  font-weight: 900 !important; /* 極太 */
-  font-size: 2.2rem;
-  letter-spacing: 0.3em;
-  color: #333 !important; /* 2枚目のイメージに合わせて単色に */
-  -webkit-text-fill-color: #333 !important; /* グラデーション解除 */
-  
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  
-  transform: translateY(-50%);
-  z-index: 2;
-}
 /* 個別のサイズ調整 */
 .section-title-en {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -359,7 +343,7 @@ img { max-width: 100%; height: auto; display: block; }
 .item-bottom-right { bottom: 19%; right: -1%; background: #C8E6C9; }
 
 /* Business Cards Positioning */
-.business-card-road { position: absolute; width: 75%; max-width: 880px; z-index: 5; }
+.business-card-road { position: absolute; width: 80%; max-width: 900px; z-index: 5; }
 
 /* 各カードの配置位置（微調整が必要な場合はここを触る） */
 #company0 { top: 1%; right: 5%; }
@@ -368,75 +352,49 @@ img { max-width: 100%; height: auto; display: block; }
 #company3 { top: 62%; left: 5%; }
 #company4 { top: 78.4%; right: 5% !important; left: auto !important; }
 
-/* --- 縦書き文字とボックスを横に並べる親要素 --- */
-.business-card-vertical {
-  display: block;
-  white-space: nowrap;
-  flex-shrink: 0;
-  writing-mode: horizontal-tb;
-  margin: 0 -40px; 
-  position: static !important; /* absoluteを解除 */
-  font-family: "Noto Sans JP", sans-serif !important;
-  font-weight: 900 !important;
-  font-size: 2.5rem; /* Canvaに合わせて少し大きく */
-  letter-spacing: 0.2em;
-  background: linear-gradient(to right, #FF7E00 0%, #FFB978 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-}
-
 .business-card-inner {
   padding: 0 !important;
   position: relative;
   min-height: 380px;
   display: flex !important;
-  align-items: center;
-  justify-content: center; /* 基本は左詰め */
+  justify-content: center;
   flex-direction: column;
   background: transparent !important;
   box-shadow: none !important;
   overflow: visible;
 }
 
-/* 左に文字を表示するパターン */
-.business-card-vertical.is-left {
-  flex-direction: row !important;
-  transform: rotate(-90deg);
-}
-
-/* 文字を「右」にするパターン */
-.business-card-vertical.is-right {
-  flex-direction: row-reverse !important;
-  justify-content: flex-end; /* 右端に寄せる */
-  transform: rotate(90deg);
-}
 #company0 .business-card-inner {
   background: transparent !important;
   box-shadow: none !important;
   padding: 0 !important;
 }
 
-/* --- メインの白いカード部分 --- */
+/* --- メインカード部分 --- */
 .business-card-content {
   flex: 1;
-  background: #fff;
+  background: none;
   padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
   min-height: 350px;
-  max-width: 750px; /* ボックスが広がりすぎないよう制限 */
+  align-items: right;
 }
 
 /* --- 見出し：センター・大きく・白文字 --- */
 .business-card-content h3.card-title-bar {
   background: linear-gradient(90deg, #FF4500, #FFA500) !important;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #fff !important;
   text-align: center;
-  padding: 15px 20px;
-  border-radius: 8px;
-  margin-bottom: 25px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.card-text-area {
+  background: #fff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
 }
 
 /* ロゴエリアの調整 */
@@ -444,7 +402,7 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   gap: 30px;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .business-card-companies img {
@@ -453,23 +411,26 @@ img { max-width: 100%; height: auto; display: block; }
   object-fit: contain;
 }
 
-/* --- 横幅が狭くなった時の対応（レスポンシブ） --- */
-@media (max-width: 1024px) {
-  .business-card-road {
-    width: 60%; /* 画面が狭くなったらカードを少し広げる */
-  }
+@media (max-width: 900px) {
+  .business-card-content h3.card-title-bar { font-size: 1.5rem; }
+  .business-card-companies img {height: 30px !important;}
 }
 
-@media (max-width: 768px) {
-  .business-card-inner {
-    flex-direction: column !important; /* 縦に並べる */
-    gap: 20px;
-  }
-  .business-card-vertical {
-    transform: none; /* 回転を解除 */
-    margin: 0;
-    font-size: 1.8rem;
-  }
+@media (max-width: 800px) {
+  .card-text-area { font-size: 0.8rem; }
+}
+
+@media (max-width: 750px) {
+  #company0 { top: 0.5%; }
+  #company1 { top: 24.4%; }
+  #company2 { top: 42%; }
+  #company3 { top: 60%; }
+  #company4 { top: 76.4%; }
+}
+
+@media (max-width: 650px) {
+  .business-card-content h3.card-title-bar { font-size: 1rem; }
+  .business-card-companies img { display: none;}
 }
 
 /* =========================================
@@ -477,7 +438,6 @@ img { max-width: 100%; height: auto; display: block; }
     ========================================= */
 .section-about {
   padding: 80px 0; background-color: #fff; position: relative;
-  /* background-image: url('...'); 画像がある場合 */
 }
 .about-content-wrapper { display: flex; align-items: center; gap: 40px; margin: 60px 0; }
 .about-text-side { flex: 1; }

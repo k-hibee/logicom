@@ -9,19 +9,19 @@ class Truck {
   }
   move() {
     const keyframes = [
-      { transform: `translate(-70%, 0%)`},
-      { transform: `translate(-70%, 150%)`},
-      { transform: `translate(-70%, 300%)`},
-      { transform: `translate(-70%, 450%)`},
-      { transform: `translate(-70%, 520%)`},
+      { transform: `translate(-65%, 0%)`},
+      { transform: `translate(-65%, 150%)`},
+      { transform: `translate(-65%, 300%)`},
+      { transform: `translate(-65%, 450%)`},
+      { transform: `translate(-65%, 520%)`},
       // カーブ
-      { transform: "translate(-60%, 545%) rotate(-12deg)"},
-      { transform: "translate(-45%, 575%) rotate(-25deg)"},
-      { transform: "translate(-30%, 600%) rotate(-40deg)"},
-      { transform: "translate(-15%, 625%) rotate(-55deg)"},
-      { transform: "translate(0%, 645%) rotate(-70deg)"},
-      { transform: "translate(20%, 655%) rotate(-82deg)"},
-      { transform: "translate(53%, 660%) rotate(-90deg)"},
+      { transform: "translate(-55%, 545%) rotate(-12deg)"},
+      { transform: "translate(-40%, 575%) rotate(-25deg)"},
+      { transform: "translate(-25%, 600%) rotate(-40deg)"},
+      { transform: "translate(0%, 625%) rotate(-55deg)"},
+      { transform: "translate(20%, 645%) rotate(-70deg)"},
+      { transform: "translate(50%, 655%) rotate(-82deg)"},
+      { transform: "translate(80%, 660%) rotate(-90deg)"},
       // 右
       { transform: "translate(300%, 665%) rotate(-90deg)"},
       { transform: "translate(480%, 665%) rotate(-90deg)"},
@@ -30,12 +30,12 @@ class Truck {
       { transform: "translate(610%, 670%) rotate(-85deg)"},
       { transform: "translate(640%, 675%) rotate(-75deg)"},
       { transform: "translate(670%, 685%) rotate(-65deg)"},
-      { transform: "translate(695%, 695%) rotate(-55deg)"},
-      { transform: "translate(720%, 710%) rotate(-45deg)"},
-      { transform: "translate(740%, 725%) rotate(-35deg)"},
-      { transform: "translate(755%, 745%) rotate(-25deg)"},
-      { transform: "translate(770%, 765%) rotate(-15deg)"},
-      { transform: "translate(785%, 795%)"},
+      { transform: "translate(690%, 695%) rotate(-55deg)"},
+      { transform: "translate(710%, 710%) rotate(-45deg)"},
+      { transform: "translate(730%, 725%) rotate(-35deg)"},
+      { transform: "translate(750%, 745%) rotate(-25deg)"},
+      { transform: "translate(760%, 770%) rotate(-15deg)"},
+      { transform: "translate(775%, 800%)"},
       // 下
       { transform: "translate(790%, 980%)"},
       { transform: "translate(790%, 1030%)"},
@@ -105,10 +105,10 @@ class Truck {
       { transform: "translate(670%, 2255%) rotate(80deg)"},
       { transform: "translate(640%, 2265%) rotate(90deg)"},
       // 左
-      { transform: "translate(560%, 2270%) rotate(90deg)"},
-      { transform: "translate(440%, 2270%) rotate(90deg)"},
-      { transform: "translate(280%, 2270%) rotate(90deg)"},
-      { transform: "translate(160%, 2270%) rotate(90deg)"},
+      { transform: "translate(560%, 2280%) rotate(90deg)"},
+      { transform: "translate(440%, 2280%) rotate(90deg)"},
+      { transform: "translate(280%, 2280%) rotate(90deg)"},
+      { transform: "translate(160%, 2280%) rotate(90deg)"},
       // カーブ
       { transform: "translate(60%, 2280%) rotate(80deg)" },
       { transform: "translate(35%, 2288%) rotate(70deg)" },
@@ -250,26 +250,26 @@ class Truck {
       { transform: "translate(610%, 715%) rotate(105deg)"},
       
       // 左（中央の直線：行きの665%より下の715%）
-      { transform: "translate(570%, 715%) rotate(90deg)"},
-      { transform: "translate(480%, 715%) rotate(90deg)"},
-      { transform: "translate(300%, 715%) rotate(90deg)"},
+      { transform: "translate(570%, 710%) rotate(90deg)"},
+      { transform: "translate(480%, 710%) rotate(90deg)"},
+      { transform: "translate(300%, 710%) rotate(90deg)"},
 
       // カーブ（左から上へ：最後のカーブ、大外回り）
-      { transform: "translate(100%, 715%) rotate(90deg)"},
-      { transform: "translate(0%, 705%) rotate(105deg)"},
-      { transform: "translate(-60%, 670%) rotate(125deg)"},
-      { transform: "translate(-100%, 610%) rotate(145deg)"},
-      { transform: "translate(-115%, 550%) rotate(165deg)"},
+      { transform: "translate(130%, 705%) rotate(90deg)"},
+      { transform: "translate(25%, 700%) rotate(105deg)"},
+      { transform: "translate(-30%, 670%) rotate(125deg)"},
+      { transform: "translate(-80%, 610%) rotate(145deg)"},
+      { transform: "translate(-105%, 550%) rotate(165deg)"},
 
       // ゴール（スタート地点へ：-120%のラインで戻る）
-      { transform: "translate(-120%, 520%) rotate(180deg)"},
-      { transform: "translate(-120%, 300%) rotate(180deg)"},
-      { transform: "translate(-120%, 0%) rotate(180deg)"},
+      { transform: "translate(-115%, 520%) rotate(180deg)"},
+      { transform: "translate(-115%, 300%) rotate(180deg)"},
+      { transform: "translate(-115%, -500%) rotate(180deg)"},
       // 停止
-      { transform: "translate(-70%, -1000%) rotate(180deg)", offset: 0.92},
+      { transform: "translate(-70%, -500%) rotate(180deg)", display: 'none' },
     ];
 
-    const options = { duration: 73200, delay: this.delay, iterations: Infinity };
+    const options = { duration: 87200, delay: this.delay, iterations: Infinity };
     const animation = this.truck.animate(keyframes, options);
 
     // 画像切り替え処理
