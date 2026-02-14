@@ -308,7 +308,6 @@ img { max-width: 100%; height: auto; display: block; }
 .road-animation-container {
   position: relative; width: 100%; max-width: 1029px; aspect-ratio: 1029/3000;
   margin: 0 auto;
-  background-image: url('/assets/images/load.png');
   background-size: 100% auto; background-repeat: no-repeat;
 }
 
