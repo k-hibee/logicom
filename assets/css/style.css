@@ -914,7 +914,7 @@ img { max-width: 100%; height: auto; display: block; }
    .footer {
     position: relative;
     /* 背景画像の設定 */
-    background-image: url('/assets/images/saga-hero.png'); /* 街並みの画像パス */
+    background-image: url('../images/saga-hero.png') !important; /* 街並みの画像パス */
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
